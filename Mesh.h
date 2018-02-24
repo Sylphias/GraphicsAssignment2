@@ -14,10 +14,14 @@
 #endif
 #include "tuple.h"
 
+//This method is used to split strings
+static std::vector<std::string> splitString(std::string s, std::string delimiter);
+
 typedef tuple< unsigned, 3 > Tuple3u;
 
 struct Mesh
 {
+
 	// list of vertices from the OBJ file
 	// in the "bind pose"
 	std::vector< Vector3f > bindVertices;

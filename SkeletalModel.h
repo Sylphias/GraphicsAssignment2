@@ -71,6 +71,7 @@ public:
 	// and the current joint --> world transforms.
 	void updateMesh();
 
+
 private:
 
 	// pointer to the root joint
