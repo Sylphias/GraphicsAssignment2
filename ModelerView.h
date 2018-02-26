@@ -37,12 +37,15 @@ public:
 
 	void updateJoints();
 	void drawAxes();
+	void drawFloor();
 
     Camera *m_camera;
 	SkeletalModel model;
 
 	bool m_drawAxes;
 	bool m_drawSkeleton;		// if false, the mesh is drawn instead.
+	bool m_drawFloor;
+
 };
 
 

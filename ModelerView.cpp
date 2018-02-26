@@ -23,6 +23,7 @@ ModelerView::ModelerView(int x, int y, int w, int h,
 
 	m_drawAxes = true;
 	m_drawSkeleton = true;
+	m_drawFloor = true;
 }
 
 // If you want to load files, etc, do that here.
@@ -97,6 +98,11 @@ int ModelerView::handle( int event )
 			{
 				m_drawSkeleton = !m_drawSkeleton;
 				cout << "drawSkeleton is now: " << m_drawSkeleton << endl;
+			}
+			else if (key == 'f')
+			{
+				m_drawFloor = !m_drawFloor;
+				cout << "drawFloor is now: " << m_drawFloor << endl;
 			}
     	}
 		break;
@@ -188,7 +194,9 @@ void ModelerView::draw()
     {
     	drawAxes();
     }
-
+	if (m_drawFloor) {
+		drawFloor();
+	}
     model.draw( m_camera->viewMatrix(), m_drawSkeleton );
 }
 
@@ -211,4 +219,27 @@ void ModelerView::drawAxes()
 
 	glEnd();
 	glEnable( GL_LIGHTING );
+}
+
+void ModelerView::drawFloor()
+{
+
+	glPushAttrib(GL_ALL_ATTRIB_BITS);
+
+	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+
+	glEnable(GL_CULL_FACE);
+	glCullFace(GL_BACK);
+	glDisable(GL_LIGHTING);
+	glBegin(GL_TRIANGLES);
+	glColor3f(30, 30, 30);
+	glVertex3f(0, 0, 0);
+	glVertex3f(0, 0, 1);
+	glVertex3f(1, 0, 0);
+	glVertex3f(1, 0, 0);
+	glVertex3f(0, 0, 1);
+	glVertex3f(1, 0, 1);
+	glEnd();
+	glEnable(GL_LIGHTING);
+	glPopAttrib();
 }
