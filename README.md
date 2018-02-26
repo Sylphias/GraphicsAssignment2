@@ -7,9 +7,7 @@ a2.exe - Main Assignment objectives achieved
 
 ## Artifacts
 I did a YMCA pose for my model.
-
-![Y](Images/Y.PNG)
-
+![Y](Images/Y.png)
 ![M](Images/M.PNG)
 ![C](Images/C.PNG)
 ![A](Images/A.PNG)
